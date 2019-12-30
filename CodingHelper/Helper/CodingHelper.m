@@ -59,23 +59,6 @@ uintptr_t _objc_rootRetainCount(id obj);
     return view;
 }
 
-//+ (void)setView:(UIView *)view withCornerRadius:(CGFloat)cornerRadius {
-//    view.layer.masksToBounds = YES;
-//    view.layer.cornerRadius = cornerRadius;
-//}
-//
-//+ (void)setView:(UIView *)view withBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor {
-//    view.layer.masksToBounds = YES;
-//    view.layer.borderWidth = borderWidth;
-//    view.layer.borderColor = borderColor.CGColor;
-//}
-//
-//+ (void)setView:(UIView *)view withTarget:(id)target action:(SEL)action {
-//    view.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
-//    [view addGestureRecognizer:tap];
-//}
-
 #pragma mark - UIImageView -
 
 + (UIImageView *)createImageViewWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor image:(UIImage *)image {
@@ -656,18 +639,6 @@ uintptr_t _objc_rootRetainCount(id obj);
 UIView *viewWithFrameAndBackgroundColor(CGRect frame, UIColor *color) {
     return [CodingHelper createViewWithFrame:frame backgroundColor:color];
 }
-
-//void setViewWithCornerRadius(UIView *view, CGFloat radius) {
-//    [CodingHelper setView:view withCornerRadius:radius];
-//}
-//
-//void setViewWithBorderWidthAndColor(UIView *view, CGFloat width, UIColor *color) {
-//    [CodingHelper setView:view withBorderWidth:width borderColor:color];
-//}
-//
-//void setViewWithTargetAndAction(UIView *view, id target, SEL action) {
-//    [CodingHelper setView:view withTarget:target action:action];
-//}
 
 #pragma mark - UILabel -
 
