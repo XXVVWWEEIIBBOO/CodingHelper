@@ -150,8 +150,8 @@ typedef void (^TextFieldBlock)(UITextField *tf);
 
 @interface CodingHelper (DeviceAdapt)
 // ----------------------------------------------------------------------------------------------------------------
-// 判断iPhone型号, 用于获取设备具体机型, 包含所有的iPhone真实机型, 另外把模拟器归为一类, 其他iOS设备归为一类
-+ (NSString *)iPhoneType;
+// 获取设备具体机型
++ (NSString *)deviceType;
 // ----------------------------------------------------------------------------------------------------------------
 @end
 
@@ -236,7 +236,7 @@ void executeDelayWithBlock(CGFloat delay, Block block);
 void callNumber(NSString *number);
 
 #pragma mark - DeviceAdapt -
-NSString *iPhoneType(void);
+NSString *deviceType(void);
 
 #pragma mark - SafeValue -
 id objectOrDefaultObject(id _Nullable anObj, id defaultObj);
@@ -285,8 +285,41 @@ FOUNDATION_EXPORT NSString * const iPhoneXSMax;
 FOUNDATION_EXPORT NSString * const iPhone11;
 FOUNDATION_EXPORT NSString * const iPhone11Pro;
 FOUNDATION_EXPORT NSString * const iPhone11ProMax;
-FOUNDATION_EXPORT NSString * const iPhoneSimulator;
-FOUNDATION_EXPORT NSString * const iPodTouchOriPad;
+
+FOUNDATION_EXPORT NSString * const iPodTouch;
+FOUNDATION_EXPORT NSString * const iPodTouch2;
+FOUNDATION_EXPORT NSString * const iPodTouch3;
+FOUNDATION_EXPORT NSString * const iPodTouch4;
+FOUNDATION_EXPORT NSString * const iPodTouch5;
+FOUNDATION_EXPORT NSString * const iPodTouch6;
+FOUNDATION_EXPORT NSString * const iPodTouch7;
+
+FOUNDATION_EXPORT NSString * const iPad;
+FOUNDATION_EXPORT NSString * const iPad2;
+FOUNDATION_EXPORT NSString * const iPad3;
+FOUNDATION_EXPORT NSString * const iPad4;
+FOUNDATION_EXPORT NSString * const iPad5;
+FOUNDATION_EXPORT NSString * const iPad6;
+FOUNDATION_EXPORT NSString * const iPad7;
+
+FOUNDATION_EXPORT NSString * const iPadAir;
+FOUNDATION_EXPORT NSString * const iPadAir2;
+FOUNDATION_EXPORT NSString * const iPadAir3;
+
+FOUNDATION_EXPORT NSString * const iPadPro12_9;
+FOUNDATION_EXPORT NSString * const iPadPro9_7;
+FOUNDATION_EXPORT NSString * const iPadPro12_9_2;
+FOUNDATION_EXPORT NSString * const iPadPro10_5;
+FOUNDATION_EXPORT NSString * const iPadPro11_0;
+FOUNDATION_EXPORT NSString * const iPadPro12_9_3;
+
+FOUNDATION_EXPORT NSString * const iPadMini;
+FOUNDATION_EXPORT NSString * const iPadMini2;
+FOUNDATION_EXPORT NSString * const iPadMini3;
+FOUNDATION_EXPORT NSString * const iPadMini4;
+FOUNDATION_EXPORT NSString * const iPadMini5;
+
+FOUNDATION_EXPORT NSString * const iOSSimulator;
 
 
 

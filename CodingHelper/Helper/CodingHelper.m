@@ -34,8 +34,41 @@ NSString * const iPhoneXSMax     = @"iPhone XS Max";
 NSString * const iPhone11        = @"iPhone 11";
 NSString * const iPhone11Pro     = @"iPhone 11 Pro";
 NSString * const iPhone11ProMax  = @"iPhone 11 Pro Max";
-NSString * const iPhoneSimulator = @"iPhone Simulator";
-NSString * const iPodTouchOriPad = @"iPod Touch or iPad";
+
+NSString * const iPodTouch       = @"iPod touch";
+NSString * const iPodTouch2      = @"iPod touch (2nd generation)";
+NSString * const iPodTouch3      = @"iPod touch (3rd generation)";
+NSString * const iPodTouch4      = @"iPod touch (4th generation)";
+NSString * const iPodTouch5      = @"iPod touch (5th generation)";
+NSString * const iPodTouch6      = @"iPod touch (6th generation)";
+NSString * const iPodTouch7      = @"iPod touch (7th generation)";
+
+NSString * const iPad            = @"iPad";
+NSString * const iPad2           = @"iPad 2";
+NSString * const iPad3           = @"iPad (3rd generation)";
+NSString * const iPad4           = @"iPad (4th generation)";
+NSString * const iPad5           = @"iPad (5th generation)";
+NSString * const iPad6           = @"iPad (6th generation)";
+NSString * const iPad7           = @"iPad (7th generation)";
+
+NSString * const iPadAir         = @"iPad Air";
+NSString * const iPadAir2        = @"iPad Air 2";
+NSString * const iPadAir3        = @"iPad Air (3rd generation)";
+
+NSString * const iPadPro12_9     = @"iPad Pro (12.9-inch)";
+NSString * const iPadPro9_7      = @"iPad Pro (9.7-inch)";
+NSString * const iPadPro12_9_2   = @"iPad Pro (12.9-inch) (2nd generation)";
+NSString * const iPadPro10_5     = @"iPad Pro (10.5-inch)";
+NSString * const iPadPro11_0     = @"iPad Pro (11-inch)";
+NSString * const iPadPro12_9_3   = @"iPad Pro (12.9-inch) (3rd generation)";
+
+NSString * const iPadMini        = @"iPad mini";
+NSString * const iPadMini2       = @"iPad mini 2";
+NSString * const iPadMini3       = @"iPad mini 3";
+NSString * const iPadMini4       = @"iPad mini 4";
+NSString * const iPadMini5       = @"iPad mini (5th generation)";
+
+NSString * const iOSSimulator    = @"iOS Simulator";
 
 
 
@@ -421,88 +454,119 @@ uintptr_t _objc_rootRetainCount(id obj);
 
 @implementation CodingHelper (DeviceAdapt)
 
-+ (NSString *)iPhoneType {
+// https://www.theiphonewiki.com/wiki/Models
++ (NSString *)deviceType {
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
-    // 暂未考虑iPod和iPad设备
-    // https://www.theiphonewiki.com/wiki/Models
-    if ([deviceString isEqualToString:@"i386"] || [deviceString isEqualToString:@"x86_64"]) {
-        return iPhoneSimulator;
-    }
-    if ([deviceString isEqualToString:@"iPhone12,5"]) {
-        return iPhone11ProMax;
-    }
-    if ([deviceString isEqualToString:@"iPhone12,3"]) {
-        return iPhone11Pro;
-    }
-    if ([deviceString isEqualToString:@"iPhone12,1"]) {
-        return iPhone11;
-    }
-    if ([deviceString isEqualToString:@"iPhone11,4"] || [deviceString isEqualToString:@"iPhone11,6"]) {
-        return iPhoneXSMax;
-    }
-    if ([deviceString isEqualToString:@"iPhone11,2"]) {
-        return iPhoneXS;
-    }
-    if ([deviceString isEqualToString:@"iPhone11,8"]) {
-        return iPhoneXR;
-    }
-    if ([deviceString isEqualToString:@"iPhone10,3"] || [deviceString isEqualToString:@"iPhone10,6"]) {
-        return iPhoneX;
-    }
-    if ([deviceString isEqualToString:@"iPhone10,2"] || [deviceString isEqualToString:@"iPhone10,5"]) {
-        return iPhone8Plus;
-    }
-    if ([deviceString isEqualToString:@"iPhone10,1"] || [deviceString isEqualToString:@"iPhone10,4"]) {
-        return iPhone8;
-    }
-    if ([deviceString isEqualToString:@"iPhone9,2"] || [deviceString isEqualToString:@"iPhone9,4"]) {
-        return iPhone7Plus;
-    }
-    if ([deviceString isEqualToString:@"iPhone9,1"] || [deviceString isEqualToString:@"iPhone9,3"]) {
-        return iPhone7;
-    }
-    if ([deviceString isEqualToString:@"iPhone8,4"]) {
-        return iPhoneSE;
-    }
-    if ([deviceString isEqualToString:@"iPhone8,2"]) {
-        return iPhone6sPlus;
-    }
-    if ([deviceString isEqualToString:@"iPhone8,1"]) {
-        return iPhone6s;
-    }
-    if ([deviceString isEqualToString:@"iPhone7,1"]) {
-        return iPhone6Plus;
-    }
-    if ([deviceString isEqualToString:@"iPhone7,2"]) {
-        return iPhone6;
-    }
-    if ([deviceString hasPrefix:@"iPhone6"]) {
-        return iPhone5s;
-    }
-    if ([deviceString isEqualToString:@"iPhone5,3"] || [deviceString isEqualToString:@"iPhone5,4"]) {
-        return iPhone5c;
-    }
-    if ([deviceString isEqualToString:@"iPhone5,1"] || [deviceString isEqualToString:@"iPhone5,2"]) {
-        return iPhone5;
-    }
-    if ([deviceString isEqualToString:@"iPhone4,1"]) {
-        return iPhone4s;
-    }
-    if ([deviceString hasPrefix:@"iPhone3"]) {
-        return iPhone4;
-    }
-    if ([deviceString isEqualToString:@"iPhone2,1"]) {
-        return iPhone3GS;
-    }
-    if ([deviceString isEqualToString:@"iPhone1,2"]) {
-        return iPhone3G;
-    }
-    if ([deviceString isEqualToString:@"iPhone1,1"]) {
-        return iPhone;
-    }
-    return iPodTouchOriPad;
+    
+    NSDictionary *dict = @{
+        @"iPhone1,1": iPhone,
+        @"iPhone1,2": iPhone3G,
+        @"iPhone2,1": iPhone3GS,
+        @"iPhone3,1": iPhone4,
+        @"iPhone3,2": iPhone4,
+        @"iPhone3,3": iPhone4,
+        @"iPhone4,1": iPhone4s,
+        @"iPhone5,1": iPhone5,
+        @"iPhone5,2": iPhone5,
+        @"iPhone5,3": iPhone5c,
+        @"iPhone5,4": iPhone5c,
+        @"iPhone6,1": iPhone5s,
+        @"iPhone6,2": iPhone5s,
+        @"iPhone7,2": iPhone6,
+        @"iPhone7,1": iPhone6Plus,
+        @"iPhone8,1": iPhone6s,
+        @"iPhone8,2": iPhone6sPlus,
+        @"iPhone8,4": iPhoneSE,
+        @"iPhone9,1": iPhone7,
+        @"iPhone9,3": iPhone7,
+        @"iPhone9,2": iPhone7Plus,
+        @"iPhone9,4": iPhone7Plus,
+        @"iPhone10,1": iPhone8,
+        @"iPhone10,4": iPhone8,
+        @"iPhone10,2": iPhone8Plus,
+        @"iPhone10,5": iPhone8Plus,
+        @"iPhone10,3": iPhoneX,
+        @"iPhone10,6": iPhoneX,
+        @"iPhone11,8": iPhoneXR,
+        @"iPhone11,2": iPhoneXS,
+        @"iPhone11,4": iPhoneXSMax,
+        @"iPhone11,6": iPhoneXSMax,
+        @"iPhone12,1": iPhone11,
+        @"iPhone12,3": iPhone11Pro,
+        @"iPhone12,5": iPhone11ProMax,
+        
+        @"iPod1,1": iPodTouch,
+        @"iPod2,1": iPodTouch2,
+        @"iPod3,1": iPodTouch3,
+        @"iPod4,1": iPodTouch4,
+        @"iPod5,1": iPodTouch5,
+        @"iPod7,1": iPodTouch6,
+        @"iPod9,1": iPodTouch7,
+        
+        @"iPad1,1": iPad,
+        @"iPad2,1": iPad2,
+        @"iPad2,2": iPad2,
+        @"iPad2,3": iPad2,
+        @"iPad2,4": iPad2,
+        @"iPad3,1": iPad3,
+        @"iPad3,2": iPad3,
+        @"iPad3,3": iPad3,
+        @"iPad3,4": iPad4,
+        @"iPad3,5": iPad4,
+        @"iPad3,6": iPad4,
+        @"iPad6,11": iPad5,
+        @"iPad6,12": iPad5,
+        @"iPad7,5": iPad6,
+        @"iPad7,6": iPad6,
+        @"iPad7,11": iPad7,
+        @"iPad7,12": iPad7,
+        
+        @"iPad4,1": iPadAir,
+        @"iPad4,2": iPadAir,
+        @"iPad4,3": iPadAir,
+        @"iPad5,3": iPadAir2,
+        @"iPad5,4": iPadAir2,
+        @"iPad11,3": iPadAir3,
+        @"iPad11,4": iPadAir3,
+        
+        @"iPad6,7": iPadPro12_9,
+        @"iPad6,8": iPadPro12_9,
+        @"iPad6,3": iPadPro9_7,
+        @"iPad6,4": iPadPro9_7,
+        @"iPad7,1": iPadPro12_9_2,
+        @"iPad7,2": iPadPro12_9_2,
+        @"iPad7,3": iPadPro10_5,
+        @"iPad7,4": iPadPro10_5,
+        @"iPad8,1": iPadPro11_0,
+        @"iPad8,2": iPadPro11_0,
+        @"iPad8,3": iPadPro11_0,
+        @"iPad8,4": iPadPro11_0,
+        @"iPad8,5": iPadPro12_9_3,
+        @"iPad8,6": iPadPro12_9_3,
+        @"iPad8,7": iPadPro12_9_3,
+        @"iPad8,8": iPadPro12_9_3,
+        
+        @"iPad2,5": iPadMini,
+        @"iPad2,6": iPadMini,
+        @"iPad2,7": iPadMini,
+        @"iPad4,4": iPadMini2,
+        @"iPad4,5": iPadMini2,
+        @"iPad4,6": iPadMini2,
+        @"iPad4,7": iPadMini3,
+        @"iPad4,8": iPadMini3,
+        @"iPad4,9": iPadMini3,
+        @"iPad5,1": iPadMini4,
+        @"iPad5,2": iPadMini4,
+        @"iPad11,1": iPadMini5,
+        @"iPad11,2": iPadMini5,
+        
+        @"i386": iOSSimulator,
+        @"x86_64": iOSSimulator
+    };
+    
+    return dict[deviceString];
 }
 
 @end
@@ -702,8 +766,8 @@ void callNumber(NSString *number) {
 
 #pragma mark - DeviceAdapt -
 
-NSString *iPhoneType(void) {
-    return CodingHelper.iPhoneType;
+NSString *deviceType(void) {
+    return CodingHelper.deviceType;
 }
 
 #pragma mark - SafeValue -
