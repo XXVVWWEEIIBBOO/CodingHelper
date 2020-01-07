@@ -12,6 +12,8 @@
 		CE30120E23B8A42D0067EE9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30120D23B8A42D0067EE9B /* main.m */; };
 		CE30121623B8A5130067EE9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30121523B8A5130067EE9B /* ViewController.m */; };
 		CE30121A23B8A5D30067EE9B /* CodingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30121923B8A5D30067EE9B /* CodingHelper.m */; };
+		CEA443A723C4EE370003358E /* UIView+WBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA443A223C4EE370003358E /* UIView+WBExtension.m */; };
+		CEA443A823C4EE370003358E /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA443A423C4EE370003358E /* NextViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,12 @@
 		CE30121523B8A5130067EE9B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE30121823B8A5D30067EE9B /* CodingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodingHelper.h; sourceTree = "<group>"; };
 		CE30121923B8A5D30067EE9B /* CodingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodingHelper.m; sourceTree = "<group>"; };
+		CEA443A123C4ED530003358E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CEA443A223C4EE370003358E /* UIView+WBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WBExtension.m"; sourceTree = "<group>"; };
+		CEA443A323C4EE370003358E /* XWB_Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWB_Macro.h; sourceTree = "<group>"; };
+		CEA443A423C4EE370003358E /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
+		CEA443A523C4EE370003358E /* UIView+WBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WBExtension.h"; sourceTree = "<group>"; };
+		CEA443A623C4EE370003358E /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,12 @@
 				CE30120523B8A42B0067EE9B /* AppDelegate.m */,
 				CE30121423B8A5130067EE9B /* ViewController.h */,
 				CE30121523B8A5130067EE9B /* ViewController.m */,
+				CEA443A623C4EE370003358E /* NextViewController.h */,
+				CEA443A423C4EE370003358E /* NextViewController.m */,
+				CEA443A523C4EE370003358E /* UIView+WBExtension.h */,
+				CEA443A223C4EE370003358E /* UIView+WBExtension.m */,
+				CEA443A323C4EE370003358E /* XWB_Macro.h */,
+				CEA443A123C4ED530003358E /* PrefixHeader.pch */,
 				CE30120723B8A42D0067EE9B /* Assets.xcassets */,
 				CE30120C23B8A42D0067EE9B /* Info.plist */,
 				CE30120D23B8A42D0067EE9B /* main.m */,
@@ -146,6 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA443A723C4EE370003358E /* UIView+WBExtension.m in Sources */,
+				CEA443A823C4EE370003358E /* NextViewController.m in Sources */,
 				CE30121623B8A5130067EE9B /* ViewController.m in Sources */,
 				CE30121A23B8A5D30067EE9B /* CodingHelper.m in Sources */,
 				CE30120E23B8A42D0067EE9B /* main.m in Sources */,
@@ -196,6 +212,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CodingHelper/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -252,6 +270,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/CodingHelper/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

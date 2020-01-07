@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  CodingHelper
+//
+//  Created by 徐伟博 on 2020/1/8.
+//  Copyright © 2020 徐伟博. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "XWB_Macro.h"
+#import "CodingHelper.h"
+#import "UIView+WBExtension.h"
+
+#endif /* PrefixHeader_pch */
