@@ -22,6 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - UIView -
 // 创建UIView
 + (UIView *)createViewWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor;
+// 设置圆角
++ (void)setView:(UIView *)view withCornerRadius:(CGFloat)cornerRadius;
+// 设置边框宽度和颜色
++ (void)setView:(UIView *)view withBorderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+// 设置目标和动作
++ (void)setView:(UIView *)view withTarget:(id)target action:(SEL)action;
 // ----------------------------------------------------------------------------------------------------------------
 #pragma mark - UIImageView -
 // 创建UIImageView
@@ -213,6 +219,9 @@ typedef void (^TextFieldBlock)(UITextField *tf);
 // 一些方法的C函数简化版
 #pragma mark - UIView -
 UIView *viewWithFrameAndBackgroundColor(CGRect frame, UIColor *color);
+void setViewWithCornerRadius(UIView *view, CGFloat radius);
+void setViewWithBorderWidthAndColor(UIView *view, CGFloat width, UIColor *color);
+void setViewWithTargetAndAction(UIView *view, id target, SEL action);
 
 #pragma mark - UILabel -
 void setLabelWithLineSpace(UILabel *label, CGFloat space);

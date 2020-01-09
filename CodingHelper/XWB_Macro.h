@@ -68,6 +68,34 @@
 // 随机颜色
 #define kRandomColor(A)             [UIColor colorWithRed:arc4random()%256/255.0 green:arc4random()%256/255.0 blue:arc4random()%256/255.0 alpha:(A)]
 // ----------------------------------------------------------------------------------------------------------------
+#pragma mark - 视图定位 -
+// 视图的X坐标
+#define kViewX(view)                CGRectGetMinX(view.frame)
+// 视图的Y坐标
+#define kViewY(view)                CGRectGetMinY(view.frame)
+// 视图的宽度
+#define kViewW(view)                CGRectGetWidth(view.frame)
+// 视图的高度
+#define kViewH(view)                CGRectGetHeight(view.frame)
+// 视图的右边X坐标
+#define kViewR(view)                CGRectGetMaxX(view.frame)
+// 视图的下边Y坐标
+#define kViewB(view)                CGRectGetMaxY(view.frame)
+// ----------------------------------------------------------------------------------------------------------------
+#pragma mark - 重设Frame -
+// 重设x
+#define kSetViewX(view, x)          view.frame = CGRectMake(x, kViewY(view), kViewW(view), kViewH(view))
+// 重设y
+#define kSetViewY(view, y)          view.frame = CGRectMake(kViewX(view), y, kViewW(view), kViewH(view))
+// 重设w
+#define kSetViewW(view, w)          view.frame = CGRectMake(kViewX(view), kViewY(view), w, kViewH(view))
+// 重设h
+#define kSetViewH(view, h)          view.frame = CGRectMake(kViewX(view), kViewY(view), kViewW(view), h)
+// 重设center x
+#define kSetViewCX(view, x)         view.center = CGPointMake(x, view.center.y)
+// 重设center y
+#define kSetViewCY(view, y)         view.center = CGPointMake(view.center.x, y)
+// ----------------------------------------------------------------------------------------------------------------
 #pragma mark - 创建图片 -
 // 以名字获得图片
 #define kImageN(name)               [UIImage imageNamed:(name)]
