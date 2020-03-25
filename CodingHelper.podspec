@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "CodingHelper"
-  spec.version      = "1.0.0"
+  spec.version      = "1.2.0"
   spec.summary      = "一个简单的工具类, 我主要用它写控件的👻"
 
   # This description is used to generate tags and improve search results.

@@ -27,10 +27,11 @@
     [self.view addSubview:btn];
     
     // https://segmentfault.com/a/1190000013980664
-    // 0.代码就绪, 打tag
-    // 1.创建.Podspec文件
-    // 2.检验.Podspec文件
-    // 3.推送到远程的cocoapods, Done!
+    // 0.代码就绪, 添加并推送tag
+    // 1.创建/编辑.Podspec文件
+    // 2.检验.Podspec文件, 命令 pod lib lint --allow-warnings
+    // 3.推送到远程的cocoapods, 命令 pod trunk push CodingHelper.podspec --allow-warnings
+    // Done!
 }
 
 - (void)buttonAction {
